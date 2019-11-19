@@ -5,3 +5,23 @@ import plotly as py
 import plotly.graph_objs as go
 import ipywidgets as wigdets
 from scipy import special
+
+
+xdata = np.linspace(0, np.pi, 1000)
+
+layout1 = go.Layout(
+    title='Simple Example',
+    yaxis=dict(title='volts'),
+    xaxis=dict(title='time (ns)')
+)
+
+trace1 = go.Scatter(
+    x=xdata,
+    y=np.sin(x),
+    mode='lines',
+    name='sin(x)',
+    line=dict(shape='spline')
+)
+
+fig = go.Figure(data[trace1], layout=layout1)
+py.offline.iplot(fig)
