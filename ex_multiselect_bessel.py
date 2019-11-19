@@ -6,6 +6,7 @@ import plotly.graph_objs as go
 import ipywidgets as wigdets
 from scipy import special
 
+#py.offline.init_notebook_mode(connected=True)
 
 xdata = np.linspace(0, np.pi, 1000)
 
@@ -17,11 +18,11 @@ layout1 = go.Layout(
 
 trace1 = go.Scatter(
     x=xdata,
-    y=np.sin(x),
+    y=np.sin(xdata),
     mode='lines',
     name='sin(x)',
     line=dict(shape='spline')
 )
 
-fig = go.Figure(data[trace1], layout=layout1)
+fig = go.Figure(data=[trace1], layout=layout1)
 py.offline.iplot(fig)
