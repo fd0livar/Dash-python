@@ -8,7 +8,7 @@ from scipy import special
 
 #py.offline.init_notebook_mode(connected=True)
 
-xdata = np.linspace(0, np.pi, 1000)
+xdata = np.linspace(0, 2*np.pi, 1000)
 
 layout1 = go.Layout(
     title='Simple Example',
