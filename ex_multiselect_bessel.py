@@ -27,7 +27,7 @@ def update_plot(signals, freq):
             name='bessel {}'.format(s),
             line=dict(shape='spline')
             )
-            data.append(trace1)
+        data.append(trace1)
 
     fig = go.Figure(data=data, layout=layout1)
     py.offline.iplot(fig)
