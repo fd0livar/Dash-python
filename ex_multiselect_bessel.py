@@ -16,13 +16,22 @@ layout1 = go.Layout(
     xaxis=dict(title='time (ns)')
 )
 
-trace1 = go.Scatter(
-    x=xdata,
-    y=np.sin(xdata),
-    mode='lines',
-    name='sin(x)',
-    line=dict(shape='spline')
-)
 
-fig = go.Figure(data=[trace1], layout=layout1)
-py.offline.iplot(fig)
+def update_plot(signals, freq):
+    data = []
+    for s in signals:
+        trace1 = go.Scatter(
+            x=xdata,
+            y=special.jv(s, freq * xdata),
+            mode='lines',
+            name='bessel {}'.format(s),
+            line=dict(shape='spline')
+            )
+            data.append(trace1)
+
+    fig = go.Figure(data=data, layout=layout1)
+    py.offline.iplot(fig)
+
+signals = wigdets.SelectMultiple(options=list(range(6)), value=(0,), description='Bessel Order')
+freq = widgets.FloatSlider(min=1, max=20, value=1, description='Freq')
+widgets.interactive(update_plot, signals=signals, freq=freq)
