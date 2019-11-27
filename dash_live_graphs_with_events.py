@@ -24,8 +24,7 @@ app.layout = html.Div(
         ]
     )
 
-@app.callback(Output('live-graph', 'figure'),
-              [Input('graph-update', 'n_intervals')])
+@app.callback( Output('live-graph', 'figure'),[Input('graph-update', 'n_intervals')] )
 
 def update_graph_scatter(n):
     #global X
