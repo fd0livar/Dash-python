@@ -14,11 +14,6 @@ app = dash.Dash('vehicle-data',
                 external_scripts=external_js,
                 external_stylesheets=external_css)
 
-# for css in external_css:
-#     app.css.append_css({"external_url": css})
-#
-# for js in external_js:
-#     app.scripts.append_script({'external_url': js})
 
 max_length      = 20
 times           = deque(maxlen=max_length)
@@ -110,11 +105,6 @@ def update_graph(data_names, n_interval):
             ), className=class_choice))
 
     return graphs
-
-
-
-
-
 
 if __name__ == '__main__':
     app.run_server(debug=True)
